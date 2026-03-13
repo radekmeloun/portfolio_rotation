@@ -1,0 +1,4 @@
+# Security and development tooling
+bandit>=1.7.8
+detect-secrets>=1.5.0
+pip-audit>=2.7.3
