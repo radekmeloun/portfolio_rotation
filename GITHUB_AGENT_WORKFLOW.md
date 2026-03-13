@@ -21,6 +21,36 @@ Before the agent can complete the full workflow, the repository should satisfy a
 3. `git config user.name` and `git config user.email` are configured.
 4. If the agent should create PRs directly, GitHub CLI `gh` is installed and authenticated.
 
+## Sandboxed Environments
+
+If the agent runs in a sandboxed environment, Git commands that write into `.git/` may fail even when normal file edits work.
+
+Typical affected commands:
+
+- `git init`
+- `git config user.name ...`
+- `git config user.email ...`
+- `git remote add origin ...`
+- `git remote set-url origin ...`
+- `git checkout -b ...`
+- `git commit -m ...`
+- `git push ...`
+
+Typical failure examples:
+
+- `could not lock config file .git/config: Permission denied`
+- `cannot lock ref 'refs/heads/...': unable to create directory`
+
+Agent rule in sandboxed setups:
+
+1. Try the Git command normally first.
+2. If it fails because `.git/` is not writable, rerun it with elevated repository permission.
+3. Explain briefly why the extra permission is needed.
+
+Recommended explanation:
+
+- `The sandbox is blocking writes under .git/, so I’m rerunning this Git command with elevated repository permission.`
+
 ## Default Branch Policy
 
 - Never work directly on `main` or `master`.
@@ -173,6 +203,51 @@ git push -u origin fix/example-topic
 gh pr create --base main --head fix/example-topic --title "fix: example topic" --body-file <prepared-body>
 ```
 
+## First-Run Permissions
+
+For the first real run in a sandboxed agent environment, the user should expect to approve repository-level Git write operations.
+
+The minimum first-run sequence is usually:
+
+1. Initialize or open the repository:
+```bash
+git init -b main
+```
+2. Configure local Git identity:
+```bash
+git config user.name "<name>"
+git config user.email "<email>"
+```
+3. Add or update the GitHub remote:
+```bash
+git remote add origin <remote-url>
+```
+or
+```bash
+git remote set-url origin <remote-url>
+```
+4. Create the first working branch:
+```bash
+git checkout -b fix/example-topic
+```
+5. Create local commits:
+```bash
+git add <files>
+git commit -m "fix: example topic"
+```
+6. Push only when explicitly approved:
+```bash
+git push -u origin fix/example-topic
+```
+
+If the first push uses GitHub over SSH, verify SSH first:
+
+```bash
+ssh -T git@github.com
+```
+
+If the first push uses HTTPS, ensure credentials or a credential helper are already configured.
+
 ## Initial Setup Checklist For User
 
 Before using this workflow in a GitHub-hosted repository, make sure:
@@ -194,6 +269,7 @@ gh --version
 gh auth status
 ```
 5. The agent is told the expected base branch if it is not `main`.
+6. In sandboxed environments, be ready to approve Git commands that need to write under `.git/`.
 
 ## Suggested User Prompts
 
@@ -203,3 +279,4 @@ Examples of clear instructions for the agent:
 - `Push the current branch to GitHub.`
 - `Create a PR to main and give me the link.`
 - `Use branch fix/backtest-end-date and commit everything related to this task locally only.`
+- `If the sandbox blocks writes under .git, rerun the Git command with elevated repository permission.`
