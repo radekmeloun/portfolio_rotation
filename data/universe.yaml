@@ -1,0 +1,142 @@
+# Global Regime Rotator - ETF Universe
+# Edit this file to add/remove assets from the universe
+
+default_profile: "wide_portfolio"
+profiles:
+  wide_portfolio:
+    label: "Wide Portfolio"
+    assets:
+      - group: "Risk-OFF"
+        name: "Overnight Rate"
+        xtb_ticker: "XEON"
+        isin: "LU0290358497"
+        is_cash: true
+
+      - group: "Risk-OFF"
+        name: "Inflation-linked bonds"
+        xtb_ticker: "IBCI"
+        isin: "IE00B0M62X26"
+
+      - group: "Core"
+        name: "S&P 500"
+        xtb_ticker: "SXR8"
+        isin: "IE00B5BMR087"
+
+      - group: "Core"
+        name: "STOXX 600"
+        xtb_ticker: "EXSA"
+        isin: "DE0002635307"
+
+      - group: "Core"
+        name: "Japan"
+        xtb_ticker: "LCUJ"
+        isin: "LU1781541252"
+
+      - group: "Core"
+        name: "Emerging Mkts"
+        xtb_ticker: "AMEM"
+        isin: "LU1681045370"
+
+      - group: "Tech/AI"
+        name: "Nasdaq 100"
+        xtb_ticker: "SXRV"
+        isin: "IE00B53SZB19"
+
+      - group: "Tech/AI"
+        name: "Semiconductors"
+        xtb_ticker: "VVSM"
+        isin: "IE00BMC38736"
+
+      - group: "Sectors"
+        name: "Energy"
+        xtb_ticker: "XDW0"
+        isin: "IE00BM67HM91"
+
+      - group: "Sectors"
+        name: "Infrastructure"
+        xtb_ticker: "CBUX"
+        isin: "IE000CK5G8J7"
+
+      - group: "Sectors"
+        name: "Healthcare"
+        xtb_ticker: "XDWH"
+        isin: "IE00BM67HK77"
+
+      - group: "Sectors"
+        name: "Staples"
+        xtb_ticker: "XDWS"
+        isin: "IE00BM67HN09"
+
+      - group: "Shock"
+        name: "Gold (Physical)"
+        xtb_ticker: "4GLD"
+        isin: "DE000A0S9GB0"
+
+      - group: "Shock"
+        name: "Commodities"
+        xtb_ticker: "SXRS"
+        isin: "IE00BDFL4P12"
+
+      - group: "Alt"
+        name: "Bitcoin"
+        xtb_ticker: "BTCE"
+        isin: "DE000A27Z304"
+
+      - group: "Extended"
+        name: "NUKL"
+        xtb_ticker: "NUKL"
+        isin: "IE000M7V94E1"
+
+      - group: "Extended"
+        name: "SPYN"
+        xtb_ticker: "SPYN"
+        isin: "IE00BKWQ0F09"
+
+  narrow_portfolio:
+    label: "Narrow Portfolio"
+    assets:
+      - group: "Shock"
+        name: "Gold (Physical)"
+        xtb_ticker: "4GLD"
+        isin: "DE000A0S9GB0"
+
+      - group: "Alt"
+        name: "Bitcoin"
+        xtb_ticker: "BTCE"
+        isin: "DE000A27Z304"
+
+      - group: "Core"
+        name: "S&P 500"
+        xtb_ticker: "SXR8"
+        isin: "IE00B5BMR087"
+
+      - group: "Core"
+        name: "STOXX 600"
+        xtb_ticker: "EXSA"
+        isin: "DE0002635307"
+
+      - group: "Risk-OFF"
+        name: "Overnight Rate"
+        xtb_ticker: "XEON"
+        isin: "LU0290358497"
+        is_cash: true
+
+      - group: "Sectors"
+        name: "Energy"
+        xtb_ticker: "XDW0"
+        isin: "IE00BM67HM91"
+
+      - group: "Sectors"
+        name: "Infrastructure"
+        xtb_ticker: "CBUX"
+        isin: "IE000CK5G8J7"
+
+      - group: "Sectors"
+        name: "Healthcare"
+        xtb_ticker: "XDWH"
+        isin: "IE00BM67HK77"
+
+      - group: "Core"
+        name: "Emerging Mkts"
+        xtb_ticker: "AMEM"
+        isin: "LU1681045370"

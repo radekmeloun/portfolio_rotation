@@ -1,0 +1,99 @@
+# Symbol Mappings for Data Providers
+# Edit this file to fix or update symbol mappings
+#
+# Each ticker can have:
+#   stooq: Symbol or list of symbols to try (e.g., "SXR8.DE" or ["SXR8.DE", "SXR8.F"])
+#   yahoo: Symbol or list of symbols to try (e.g., "SXR8.DE" or ["SXR8.DE", "CSPX.L"])
+#   notes: Optional description
+#
+# Leave blank if symbol is unknown - will show "needs mapping" in logs
+#
+# default_sources: Order of providers to try (optional, defaults to ["stooq", "yahoo"])
+
+default_sources: ["stooq", "yahoo"]
+
+symbols:
+  XEON:
+    stooq: "XEON.DE"
+    yahoo: "XEON.DE"
+    notes: "Xtrackers EUR Overnight Rate Swap"
+
+  IBCI:
+    stooq: "IBCI.DE"
+    yahoo: "IBCI.DE"
+    notes: "iShares EUR Inflation Linked Govt Bond"
+
+  SXR8:
+    stooq: "SXR8.DE"
+    yahoo: "SXR8.DE"
+    notes: "iShares Core S&P 500 UCITS ETF EUR"
+
+  EXSA:
+    stooq: "EXSA.DE"
+    yahoo: "EXSA.DE"
+    notes: "iShares STOXX Europe 600"
+
+  LCUJ:
+    stooq: "LCUJ.DE"
+    yahoo: "LCUJ.DE"
+    notes: "Lyxor Core MSCI Japan"
+
+  AMEM:
+    stooq: "AMEM.DE"
+    yahoo: "AMEM.DE"
+    notes: "Amundi MSCI Emerging Markets"
+
+  SXRV:
+    stooq: "SXRV.DE"
+    yahoo: "SXRV.DE"
+    notes: "iShares Nasdaq 100 UCITS ETF EUR"
+
+  VVSM:
+    stooq: "VVSM.DE"
+    yahoo: "VVSM.DE"
+    notes: "VanEck Semiconductor UCITS ETF"
+
+  XDW0:
+    stooq: "XDW0.DE"
+    yahoo: "XDW0.DE"
+    notes: "Xtrackers MSCI World Energy"
+
+  CBUX:
+    stooq: "CBUX.DE"
+    yahoo: "CBUX.DE"
+    notes: "iShares Global Infrastructure"
+
+  XDWH:
+    stooq: "XDWH.DE"
+    yahoo: "XDWH.DE"
+    notes: "Xtrackers MSCI World Health Care"
+
+  XDWS:
+    stooq: "XDWS.DE"
+    yahoo: "XDWS.DE"
+    notes: "Xtrackers MSCI World Consumer Staples"
+
+  4GLD:
+    stooq: ["4GLD.DE", "XGLD.DE"]  # Try alternate symbols
+    yahoo: ["4GLD.DE", "SGLD.L"]
+    notes: "Xetra-Gold ETC"
+
+  SXRS:
+    stooq: "SXRS.DE"
+    yahoo: "SXRS.DE"
+    notes: "iShares Diversified Commodity Swap"
+
+  BTCE:
+    stooq: ["BTCE.DE", "BTCE.F"]  # Try Frankfurt if Xetra fails
+    yahoo: ["BTCE.DE", "BTCE-EUR.DE"]
+    notes: "ETC Group Physical Bitcoin (BTCE) - Xetra"
+
+  NUKL:
+    stooq: "NUKL.DE"
+    yahoo: "NUKL.DE"
+    notes: "Best-guess mapping; verify symbol and ISIN"
+
+  SPYN:
+    stooq: "SPYN.DE"
+    yahoo: "SPYN.DE"
+    notes: "Best-guess mapping for SPYN; verify exchange suffix if needed"
