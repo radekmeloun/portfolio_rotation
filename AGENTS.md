@@ -47,3 +47,4 @@ If `.venv` is missing:
 
 - Detailed policy and examples: `TESTING_GUIDELINES.md`
 - Git/GitHub workflow for branch, commit, push, and PR handling: `GITHUB_AGENT_WORKFLOW.md`
+- Security pre-commit review workflow: `SECURITY_AGENT_WORKFLOW.md`
